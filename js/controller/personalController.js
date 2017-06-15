@@ -13,7 +13,7 @@ var Personal = function() {
     function scanear(){
         cordova.plugins.barcodeScanner.scan(
             function (result) {  
-                var beanPersona = new BeanPersonal(result.text, id_bodega);
+                var beanPersona = new BeanPersonalQr(result.text, id_bodega);
                 CatalogosModel.PersonalRegistro(beanPersona, function(data) {
                     x$('#divEstatus').removeClass('hidden');
                     scanear();
