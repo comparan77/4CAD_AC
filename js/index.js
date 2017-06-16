@@ -18,8 +18,13 @@
  */
 
 var oPersonal;
-var urlHandler = "http://192.168.1.66:82/";
-var id_bodega = 1;
+var urlHandler = "http://servidor.casc.com.mx:82/";
+
+var oUsuario;
+var oCAEController = new CAEController();
+var menuAct = 'inicio';
+
+var oIndexCtrl = new IndexController();
 
 var app = {
     // Application Constructor
@@ -44,21 +49,21 @@ var app = {
     },
     // Update DOM on a Received Event
     receivedEvent: function(id) {
-        var parentElement = document.getElementById(id);
-        var listeningElement = parentElement.querySelector('.listening');
-        var receivedElement = parentElement.querySelector('.received');
+        // var parentElement = document.getElementById(id);
+        // var listeningElement = parentElement.querySelector('.listening');
+        // var receivedElement = parentElement.querySelector('.received');
 
-        listeningElement.setAttribute('style', 'display:none;');
-        receivedElement.setAttribute('style', 'display:block;');
+        // listeningElement.setAttribute('style', 'display:none;');
+        // receivedElement.setAttribute('style', 'display:block;');
 
-        console.log('Received Event: ' + id);
+        // console.log('Received Event: ' + id);
+        try {
+            oCAEController.Create('login');
+        } catch (error) {
+            alert(error.message);
+        }
     }
 };
-
-function iniciarRegistro() {
-    oPersonal = new Personal();
-    oPersonal.Init();
-}
 
 function onBackKeyDown() {
     Common.notificationConfirm("Confirma que desea salir de la app", "Exit", ['Cancelar','Salir'], salir);
@@ -69,7 +74,6 @@ function salir(btnIdx) {
         case 2:
             navigator.app.exitApp();    
             break;
-    
         default:
             break;
     }

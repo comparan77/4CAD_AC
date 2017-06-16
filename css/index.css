@@ -1,58 +1,150 @@
-/*
- * Licensed to the Apache Software Foundation (ASF) under one
- * or more contributor license agreements.  See the NOTICE file
- * distributed with this work for additional information
- * regarding copyright ownership.  The ASF licenses this file
- * to you under the Apache License, Version 2.0 (the
- * "License"); you may not use this file except in compliance
- * with the License.  You may obtain a copy of the License at
- *
- * http://www.apache.org/licenses/LICENSE-2.0
- *
- * Unless required by applicable law or agreed to in writing,
- * software distributed under the License is distributed on an
- * "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY
- * KIND, either express or implied.  See the License for the
- * specific language governing permissions and limitations
- * under the License.
- */
-
-
-body {
-    -webkit-touch-callout: none;                /* prevent callout to copy image, etc when tap to hold */
-    -webkit-text-size-adjust: none;             /* prevent webkit from resizing text to fit */
-    -webkit-user-select: none;                  /* prevent copy paste, to allow, change 'none' to 'text' */
-    /*background-color:#E4E4E4;
-    background-image:linear-gradient(top, #A7A7A7 0%, #E4E4E4 51%);
-    background-image:-webkit-linear-gradient(top, #A7A7A7 0%, #E4E4E4 51%);
-    background-image:-ms-linear-gradient(top, #A7A7A7 0%, #E4E4E4 51%);
-    background-image:-webkit-gradient(
-        linear,
-        left top,
-        left bottom,
-        color-stop(0, #A7A7A7),
-        color-stop(0.51, #E4E4E4)
-    );
-    background-attachment:fixed;
-    font-family:'HelveticaNeue-Light', 'HelveticaNeue', Helvetica, Arial, sans-serif;
-    font-size:12px;
-    height:100%;
-    margin:0px;
-    padding:0px;
-    text-transform:uppercase;
-    width:100%;*/
+body {margin:0; background-color: #f9f9f9}
+ul.topnav {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+  overflow: hidden;
+  background-color: #333;
 }
 
-h1 {
-    font-size:24px;
-    font-weight:normal;
-    margin:0px;
-    overflow:visible;
-    padding:0px;
-    text-align:center;
+ul.topnav li {float: left;}
+
+ul.topnav li a {
+  display: inline-block;
+  color: #f2f2f2;
+  text-align: center;
+  padding: 12px 14px;
+  text-decoration: none;
+  transition: 0.3s;
+  font-size: 17px;
 }
 
-.hidden {
-    display: none;
+/*ul.topnav li a:hover {background-color: #111;}*/
+
+ul.topnav li.icon {display: none;}
+
+@media screen and (max-width:680px) {
+  ul.topnav li:not(:first-child) {display: none;}
+  ul.topnav li.icon {
+    float: right;
+    display: inline-block;
+  }
 }
 
+@media screen and (max-width:680px) {
+  ul.topnav.responsive {position: relative;}
+  ul.topnav.responsive li.icon {
+    position: absolute;
+    right: 0;
+    top: 0;
+  }
+  ul.topnav.responsive li {
+    float: none;
+    display: inline;
+  }
+  ul.topnav.responsive li a {
+    display: block;
+    text-align: left;
+  }
+}
+
+/*Generales*/
+.active 
+{ 
+  background-color: #4caf50 !important;
+  color: #fff !important; 
+}
+
+.hidden
+{
+  display: none;
+}
+
+.divForm 
+{
+  clear: left;
+  margin-bottom: 3px;
+}
+
+/*Loading*/
+.loading {
+    width: 102px;
+    height: 102px;
+    background-image: url(../img/sprite-loading.png);
+    
+    -webkit-animation: play .6s steps(8) infinite;
+       -moz-animation: play .6s steps(4) infinite;
+        -ms-animation: play .6s steps(4) infinite;
+         -o-animation: play .6s steps(4) infinite;
+            animation: play .6s steps(4) infinite;
+}
+
+@-webkit-keyframes play {
+   from { background-position:    0px; }
+     to { background-position: -816px; }
+}
+
+@-moz-keyframes play {
+   from { background-position:    0px; }
+     to { background-position: -816px; }
+}
+
+@-ms-keyframes play {
+   from { background-position:    0px; }
+     to { background-position: -816px; }
+}
+
+@-o-keyframes play {
+   from { background-position:    0px; }
+     to { background-position: -816px; }
+}
+
+@keyframes play {
+   from { background-position:    0px; }
+     to { background-position: -816px; }
+}
+
+@media (max-width: 1000px) {
+.center-inner{left:25%;top:25%;position:absolute;width:50%;height:300px;text-align:center;max-width:500px;max-height:500px;}
+}
+@media (min-width: 1000px) {
+.center{left:50%;top:25%;position:absolute;}
+.center-inner{width:500px;height:100%;margin-left:-250px;height:300px;text-align:center;max-width:500px;max-height:500px;}}
+
+/*Operation*/
+h1, .selected
+{
+  color: #0d5fb5;
+}
+
+legend
+{
+  color: #0d5fb5!important;
+}
+
+textarea
+{
+  width: 97%;
+}
+
+/*Evidencias fotograficas*/
+.l-box 
+{
+  padding: 1em;
+}
+
+/*#evidencias ul
+{
+  list-style-type: none;
+}
+#evidencias ul li
+{
+  padding: 1%;
+  float: left;
+}
+div.photo
+{
+  width: 100px;
+  height: 100px;
+  background-size: 100% 100%;
+}*/

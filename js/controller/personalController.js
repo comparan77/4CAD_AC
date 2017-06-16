@@ -1,22 +1,21 @@
-var Personal = function() {
+var PerController = function() {
     this.Init = init;
 
     function init() {
-        try {
-            x$('#divRegistro').addClass('hidden');
-            scanear();            
-        } catch (error) {
-            Common.notificationAlert(error, 'Error', 'Ok');
-        }
+        initControls();
+    }
+
+    function initControls() {
+        btn_registrar_click();
     }
 
     function scanear(){
         cordova.plugins.barcodeScanner.scan(
             function (result) {  
-                var beanPersona = new BeanPersonalQr(result.text, id_bodega);
+                var beanPersona = new BeanPersonalQr(result.text, oUsuario.Id_bodega);
                 CatalogosModel.PersonalRegistro(beanPersona, function(data) {
-                    x$('#divEstatus').removeClass('hidden');
-                    scanear();
+                    //x$('#divEstatus').removeClass('hidden');
+                    //scanear();
                 });
             },
             function (error) {
@@ -24,4 +23,15 @@ var Personal = function() {
             }
         );
     };
+
+    function btn_registrar_click() {
+        try {
+            x$('#btn_registrar').on('click', function() {
+                //x$('#divRegistro').addClass('hidden');
+                scanear();
+            });        
+        } catch (error) {
+            Common.notificationAlert(error, 'Error', 'Ok');
+        }
+    }
 }
