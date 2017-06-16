@@ -1,11 +1,11 @@
 <?xml version='1.0' encoding='utf-8'?>
 <widget id="com.phonegap.helloworld" version="1.0.0" xmlns="http://www.w3.org/ns/widgets" xmlns:gap="http://phonegap.com/ns/1.0">
-    <name>helloworld</name>
+    <name>4CAD-CA</name>
     <description>
-        Hello World sample application that responds to the deviceready event.
+        Aplicación para escanear el acceso del personal a través de un código QR asignado.
     </description>
     <author email="support@phonegap.com" href="http://phonegap.com">
-        PhoneGap Team
+        Yaaxil Team
     </author>
     <content src="index.html" />
     <preference name="DisallowOverscroll" value="true" />

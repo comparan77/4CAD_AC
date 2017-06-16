@@ -32,6 +32,7 @@ var app = {
     // 'load', 'deviceready', 'offline', and 'online'.
     bindEvents: function() {
         document.addEventListener('deviceready', this.onDeviceReady, false);
+        document.addEventListener("backbutton", onBackKeyDown, false);
     },
     // deviceready Event Handler
     //
@@ -57,4 +58,19 @@ var app = {
 function iniciarRegistro() {
     oPersonal = new Personal();
     oPersonal.Init();
+}
+
+function onBackKeyDown() {
+    Common.notificationConfirm("Confirma que desea salir de la app", "Exit", ['Cancelar','Salir'], salir);
+}
+
+function salir(btnIdx) {
+    switch (btnIdx) {
+        case 2:
+            navigator.app.exitApp();    
+            break;
+    
+        default:
+            break;
+    }
 }
