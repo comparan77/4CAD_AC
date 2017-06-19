@@ -14,7 +14,8 @@ var PerController = function() {
             function (result) {  
                 var beanPersona = new BeanPersonalQr(result.text, oUsuario.Id_bodega);
                 CatalogosModel.PersonalRegistro(beanPersona, function(data) {
-                    //x$('#divEstatus').removeClass('hidden');
+                    x$('#div_foto').removeClass('hidden');
+                    x$('#img_foto').attr('src', urlHandler + 'rpt/personal/' + data.Idf + '/Foto.jpg');
                     //scanear();
                 });
             },
@@ -27,7 +28,7 @@ var PerController = function() {
     function btn_registrar_click() {
         try {
             x$('#btn_registrar').on('click', function() {
-                //x$('#divRegistro').addClass('hidden');
+                x$('#div_foto').addClass('hidden');
                 scanear();
             });        
         } catch (error) {
