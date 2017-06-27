@@ -122,6 +122,11 @@ legend
   color: #0d5fb5!important;
 }
 
+.error
+{
+  color: red!important;
+}
+
 textarea
 {
   width: 97%;
