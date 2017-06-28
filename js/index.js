@@ -18,7 +18,7 @@
  */
 
 var oPersonal;
-var urlHandler = "http://servidor.casc.com.mx:82/";
+var urlHandler = "http://servidor.casc.com.mx:8083/";
 
 var oUsuario;
 var oCAEController = new CAEController();

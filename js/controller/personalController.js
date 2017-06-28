@@ -14,11 +14,17 @@ var PerController = function() {
             function (result) {  
                 var beanPersona = new BeanPersonalQr(result.text, oUsuario.Id_bodega);
                 CatalogosModel.PersonalRegistro(beanPersona, function(data) {
-                    x$('#div_foto').removeClass('hidden');
-                    x$('#p_mensaje').html(data.Mensaje);
-                    x$('#img_foto').attr('src', urlHandler + 'rpt/personal/' + data.Idf + '/Foto.jpg');
-                    if(data.PPerReg==null)
+                    if(typeof(data)=='object') {
+                        x$('#div_foto').removeClass('hidden');
+                        x$('#p_mensaje').html(data.Mensaje);
+                        x$('#img_foto').attr('src', urlHandler + 'rpt/personal/' + data.Idf + '/Foto.jpg');
+                        if(data.PPerReg==null)
+                            x$('#p_mensaje').addClass('error');
+                        }
+                    else {
                         x$('#p_mensaje').addClass('error');
+                        x$('#p_mensaje').html(data);
+                    }
                     //scanear();
                 });
             },
