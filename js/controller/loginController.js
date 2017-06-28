@@ -33,7 +33,7 @@ var Login = function() {
     function btn_click() {
         x$('#access').on('click', function() {
             var passValue = x$("#txt_password").attr('value');
-            passValue = 'ids150225_'
+            passValue = 'ids150225_';
             var pass = SHA512(passValue);//llamada al archivo js 
             var email = String(x$("#txt_email").attr('value'));
             Common.setEstatusBtn('access', 'Validando', true);
