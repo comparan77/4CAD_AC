@@ -46,6 +46,7 @@ var app = {
     onDeviceReady: function() {
         app.receivedEvent('deviceready');
         FastClick.attach(document.body);
+        syncApp();
     },
     // Update DOM on a Received Event
     receivedEvent: function(id) {
@@ -77,4 +78,29 @@ function salir(btnIdx) {
         default:
             break;
     }
+}
+
+function syncApp() {
+
+    var sync = ContentSync.sync({
+            src: 'https://build.phonegap.com/apps/2587834/download/android/?qr_key=UJhwD1ZLxQzXiR3mkwGm',
+            id: '4cad_ca'
+    });
+
+    sync.on('progress', function(data) {
+        // data.progress
+    });
+
+    sync.on('complete', function(data) {
+        alert('Ready')
+    });
+
+    sync.on('error', function(e) {
+        // e
+    });
+
+    sync.on('cancel', function() {
+        // triggered if event is cancelled
+    });
+
 }
