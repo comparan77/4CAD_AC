@@ -83,7 +83,7 @@ function salir(btnIdx) {
 function syncApp() {
 
     var sync = ContentSync.sync({
-            src: urlHandler + '4cad/controlaccess/upgrade.zip',
+            src: urlHandler + '4cad/controlaccess/login.html',
             id: '4cad_ca'
     });
 
