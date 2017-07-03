@@ -46,7 +46,7 @@ var app = {
     onDeviceReady: function() {
         app.receivedEvent('deviceready');
         FastClick.attach(document.body);
-        syncApp();
+        //syncApp();
     },
     // Update DOM on a Received Event
     receivedEvent: function(id) {
