@@ -18,7 +18,7 @@
  */
 
 var oPersonal;
-var urlHandler = "http://servidor.casc.com.mx:82/";
+var urlHandler = "https://servidor.casc.com.mx/";
 
 var oUsuario;
 var oCAEController = new CAEController();
@@ -46,7 +46,7 @@ var app = {
     onDeviceReady: function() {
         app.receivedEvent('deviceready');
         FastClick.attach(document.body);
-        syncApp();
+        //syncApp();
     },
     // Update DOM on a Received Event
     receivedEvent: function(id) {
@@ -83,7 +83,7 @@ function salir(btnIdx) {
 function syncApp() {
 
     var sync = ContentSync.sync({
-            src: 'https://build.phonegap.com/apps/2587834/download/android/?qr_key=UJhwD1ZLxQzXiR3mkwGm',
+            src: urlHandler + '4cad/controlaccess/upgrade.zip',
             id: '4cad_ca'
     });
 
