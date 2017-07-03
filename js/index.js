@@ -92,7 +92,7 @@ function syncApp() {
     });
 
     sync.on('complete', function(data) {
-        alert('Ready')
+        alert(data.localPath)
     });
 
     sync.on('error', function(e) {
