@@ -83,7 +83,7 @@ function salir(btnIdx) {
 function syncApp() {
 
     var sync = ContentSync.sync({
-            src: urlHandler + '4cad/controlaccess/login.html',
+            src: urlHandler + '4cad/controlaccess/upgrade.zip',
             id: '4cad_ca'
     });
 
@@ -96,7 +96,7 @@ function syncApp() {
     });
 
     sync.on('error', function(e) {
-        // e
+        alert(e);
     });
 
     sync.on('cancel', function() {
