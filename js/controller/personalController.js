@@ -16,7 +16,6 @@ var PerController = function() {
                 var beanPersona = new BeanPersonalQr(result.text, oUsuario.Id_bodega);
                 CatalogosModel.PersonalRegistro(beanPersona, function(data) {
                     if(typeof(data)=='object') {
-                        x$('#div_foto').removeClass('hidden');
                         x$('#p_mensaje').html(data.Mensaje);
                         //x$('#img_foto').attr('src', urlHandler + 'rpt/personal/' + data.Idf + '/Foto.jpg');
                         try {
@@ -136,9 +135,11 @@ var PerController = function() {
         //console.log('file://data/data/com.adobe.phonegap.app/files/files' + fileEntry.fullPath);
         //x$('#img_foto').attr('src', 'file:///data/data/com.adobe.phonegap.app/files/files' + fileEntry.fullPath);
         x$('#img_foto').attr('src', 'file:///data/data/com.phonegap.helloworld/files/files' + fileEntry.fullPath);
+        x$('#div_foto').removeClass('hidden');
     }
     function fileDoesNotExist(){
-        x$('#img_foto').attr('src', urlHandler + 'rpt/personal/' + v_idf + '/Foto.jpg');       
+        x$('#img_foto').attr('src', urlHandler + 'rpt/personal/' + v_idf + '/Foto.jpg');   
+        x$('#div_foto').removeClass('hidden');
         DownloadFile( urlHandler + 'rpt/personal/' + v_idf + '/Foto.jpg', 'perfoto', v_idf);
     }
     function getFSFail(evt) {
