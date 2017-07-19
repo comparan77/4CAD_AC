@@ -88,6 +88,7 @@ var PerController = function() {
             
             fp = fp + "/" + Folder_Name + "/" + File_Name + "." + ext; // fullpath and name of the file which we want to give
             //fp = 'data/data/com.adobe.phonegap.app/files/files/perfoto/' + File_Name + "." + ext;
+            fp = 'data/data/com.phonegap.helloworld/files/files/perfoto/' + File_Name + "." + ext;
             // download function call
             filetransfer(download_link, fp);
         }
@@ -134,7 +135,7 @@ var PerController = function() {
         //alert("File " + fileEntry.fullPath + " exists!");
         //console.log('file://data/data/com.adobe.phonegap.app/files/files' + fileEntry.fullPath);
         //x$('#img_foto').attr('src', 'file:///data/data/com.adobe.phonegap.app/files/files' + fileEntry.fullPath);
-        x$('#img_foto').attr('src', 'file://' + fileEntry.fullPath);        
+        x$('#img_foto').attr('src', 'file:///data/data/com.phonegap.helloworld/files/files' + fileEntry.fullPath);
     }
     function fileDoesNotExist(){
         x$('#img_foto').attr('src', urlHandler + 'rpt/personal/' + v_idf + '/Foto.jpg');       
