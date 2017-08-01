@@ -17,15 +17,14 @@ var PerController = function() {
                 CatalogosModel.PersonalRegistro(beanPersona, function(data) {
                     if(typeof(data)=='object') {
                         x$('#p_mensaje').html(data.Mensaje);
-                        x$('#img_foto').attr('src', urlHandler + 'rpt/personal/' + data.Idf + '/Foto.jpg');
-                        x$('#div_foto').removeClass('hidden');
-                        // try {
-                        //     v_idf = data.Idf;
-                        //     checkIfFileExists('perfoto/' + v_idf + ".jpg");
-                        //     //DownloadFile( urlHandler + 'rpt/personal/' + data.Idf + '/Foto.jpg', 'perfoto', data.Idf);    
-                        // } catch (error) {
-                        //     alert(error);
-                        // }
+                        // x$('#img_foto').attr('src', urlHandler + 'rpt/personal/' + data.Idf + '/Foto.jpg');
+                        // x$('#div_foto').removeClass('hidden');
+                        try {
+                            v_idf = data.Idf;
+                            checkIfFileExists('perfoto/' + v_idf + ".jpg");
+                        } catch (error) {
+                            alert(error);
+                        } 
                         
                         if(data.PPerReg==null)
                             x$('#p_mensaje').addClass('error');
