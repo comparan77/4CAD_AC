@@ -17,7 +17,6 @@ var PerController = function() {
                 CatalogosModel.PersonalRegistro(beanPersona, function(data) {
                     if(typeof(data)=='object') {
                         x$('#p_mensaje').html(data.Mensaje);
-                        
                         x$('#img_foto').attr('src', urlHandler + 'rpt/personal/' + data.Idf + '/Foto.jpg');
                         x$('#div_foto').removeClass('hidden');
                         // try {
