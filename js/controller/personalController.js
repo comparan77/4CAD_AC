@@ -14,27 +14,29 @@ var PerController = function() {
         cordova.plugins.barcodeScanner.scan(
             function (result) {  
                 var beanPersona = new BeanPersonalQr(result.text, oUsuario.Id_bodega);
-                CatalogosModel.PersonalRegistro(beanPersona, function(data) {
-                    if(typeof(data)=='object') {
-                        x$('#p_mensaje').html(data.Mensaje);
-                        // x$('#img_foto').attr('src', urlHandler + 'rpt/personal/' + data.Idf + '/Foto.jpg');
-                        // x$('#div_foto').removeClass('hidden');
-                        try {
-                            v_idf = data.Idf;
-                            checkIfFileExists('perfoto/' + v_idf + ".jpg");
-                        } catch (error) {
-                            alert(error);
-                        } 
-                        
-                        if(data.PPerReg==null)
+                if(result.text.length>0) {
+                    CatalogosModel.PersonalRegistro(beanPersona, function(data) {
+                        if(typeof(data)=='object') {
+                            x$('#p_mensaje').html(data.Mensaje);
+                            // x$('#img_foto').attr('src', urlHandler + 'rpt/personal/' + data.Idf + '/Foto.jpg');
+                            // x$('#div_foto').removeClass('hidden');
+                            try {
+                                v_idf = data.Idf;
+                                checkIfFileExists('perfoto/' + v_idf + ".jpg");
+                            } catch (error) {
+                                alert(error);
+                            } 
+                            
+                            if(data.PPerReg==null)
+                                x$('#p_mensaje').addClass('error');
+                            }
+                        else {
                             x$('#p_mensaje').addClass('error');
+                            x$('#p_mensaje').html(data);
                         }
-                    else {
-                        x$('#p_mensaje').addClass('error');
-                        x$('#p_mensaje').html(data);
-                    }
-                    //scanear();
-                });
+                        //scanear();
+                    });
+                }
             },
             function (error) {
                 Common.notificationAlert(error, 'Fallo escaneo', 'Ok');

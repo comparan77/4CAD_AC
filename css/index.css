@@ -163,3 +163,8 @@ img {
     height: 250px;
     width: 250px;
 }
+
+#p_mensaje {
+ font-size: 1.5em; 
+ color: green;
+}
